@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des biens{% endblock %}
+
+{% block body %}
+    <h3><a href="{{ path('templates_new') }}">Ajouter un bien</a></h3>
+    <h1>Liste des biens</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+
+            <th>Prix</th>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Couchage</th>
+            <th>Label</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for template in templates %}
+            <tr>
+                <td>{{ template.prix ~ '€' }}</td>
+                <td>{{ template.titre }}</td>
+                <td>{{ template.description }}</td>
+                <td>{{ template.couchage }}</td>
+                <td>{{ template.label }}</td>
+                <td>
+                    <a href="{{ path('templates_show', {'id': template.id}) }}">Voir</a>
+                    <a href="{{ path('templates_edit', {'id': template.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('templates_new') }}">Ajouter un bien</a>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Saisons{% endblock %}
+
+{% block body %}
+    <h1>Saisons</h1>
+
+    <table class="table">
+        <tbody>
+
+            <tr>
+                <th>Type</th>
+                <td>{{ saison.type }}</td>
+            </tr>
+            <tr>
+                <th>Date de début</th>
+                <td>{{ saison.dateStart ? saison.dateStart|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date de fin</th>
+                <td>{{ saison.dateEnd ? saison.dateEnd|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('saisons_index') }}">Retour à la liste</a>
+
+    <a href="{{ path('saisons_edit', {'id': saison.id}) }}">modifier</a>
+
+    {{ include('admin/saisons/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tarifs{% endblock %}
+
+{% block body %}
+    <h1>Table des tarifs</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Valeur</th>
+                <th>Type</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tarification in tarifications %}
+            <tr>
+                <td>{{ tarification.code }}</td>
+                <td>{{ tarification.value }}</td>
+                <td>{{ tarification.type }}</td>
+                <td>
+                    <a href="{{ path('tarifications_show', {'id': tarification.id}) }}">voir</a>
+                    <a href="{{ path('tarifications_edit', {'id': tarification.id}) }}">modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('tarifications_new') }}">Ajouter un nouveau tarif</a>
+{% endblock %}

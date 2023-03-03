@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mofifier tarifs{% endblock %}
+
+{% block body %}
+    <h1>Modifier Tarifications</h1>
+
+    {{ include('admin/tarifications/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+    <a href="{{ path('tarifications_index') }}">Retour</a>
+
+    {{ include('admin/tarifications/_delete_form.html.twig') }}
+{% endblock %}

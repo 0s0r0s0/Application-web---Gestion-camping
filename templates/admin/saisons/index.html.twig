@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Saisons{% endblock %}
+
+{% block body %}
+    <h1>Les saisons</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Date de début</th>
+                <th>Date de fin</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for saison in saisons %}
+            <tr>
+                <td>{{ saison.type }}</td>
+                <td>{{ saison.dateStart ? saison.dateStart|date('Y-m-d') : '' }}</td>
+                <td>{{ saison.dateEnd ? saison.dateEnd|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('saisons_show', {'id': saison.id}) }}">voir</a>
+                    <a href="{{ path('saisons_edit', {'id': saison.id}) }}">modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('saisons_new') }}">Créer une nouvelle</a>
+{% endblock %}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Camping *****{% endblock %}</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+</head>
+<body>
+<img src="{{ asset('img/camping.jpg') }}" alt="Image de camping" class="min-vw-100">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Camping</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('templates') }}">Locations<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('saisons_index') }}">Saison</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('tarifications_index') }}">Tarifs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('logout') }}">Se déconnecter</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+{% block body %}
+
+{% endblock %}
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+
+{% endblock %}
+</body>
+</html>

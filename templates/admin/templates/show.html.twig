@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Templates{% endblock %}
+
+{% block body %}
+    <h1>Templates</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ template.id }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ template.prix }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ template.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ template.description }}</td>
+            </tr>
+            <tr>
+                <th>Couchage</th>
+                <td>{{ template.couchage }}</td>
+            </tr>
+            <tr>
+                <th>Label</th>
+                <td>{{ template.label }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('templates') }}">Retour</a>
+
+    <a href="{{ path('templates_edit', {'id': template.id}) }}">Modifier</a>
+
+    {{ include('admin/templates/_delete_form.html.twig') }}
+{% endblock %}
